@@ -130,12 +130,12 @@ ORDER BY
 -- Pues si , es correcto este pedo jaja
 
 /* 
-Explicación:
-CTE LatestDeaths: Esta es una tabla temporal (Common Table Expression) que obtiene la fecha más reciente (MAX(date)) para cada locación dentro de cada continente.
-JOIN: Unimos la tabla original CovidDeaths con la tabla temporal LatestDeaths para obtener solo los registros correspondientes a la última fecha de cada locación.
-SUM(CAST(cd.total_deaths AS INT)): Una vez que tenemos los datos correspondientes a la última fecha de cada locación, sumamos los valores de muertes por continente.
+ExplicaciÃ³n:
+CTE LatestDeaths: Esta es una tabla temporal (Common Table Expression) que obtiene la fecha mÃ¡s reciente (MAX(date)) para cada locaciÃ³n dentro de cada continente.
+JOIN: Unimos la tabla original CovidDeaths con la tabla temporal LatestDeaths para obtener solo los registros correspondientes a la Ãºltima fecha de cada locaciÃ³n.
+SUM(CAST(cd.total_deaths AS INT)): Una vez que tenemos los datos correspondientes a la Ãºltima fecha de cada locaciÃ³n, sumamos los valores de muertes por continente.
 GROUP BY cd.continent: Agrupamos por continente para obtener el total por cada uno.
-Esto te dará el total de muertes por continente utilizando solo los datos más recientes de cada locación.
+Esto te darÃ¡ el total de muertes por continente utilizando solo los datos mÃ¡s recientes de cada locaciÃ³n.
 */
 
 --
