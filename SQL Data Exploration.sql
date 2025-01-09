@@ -18,7 +18,7 @@ Select Location, date, total_cases, new_cases, total_deaths, population
 From PortfolioProject1..CovidDeaths
 order by 1,2
 
--- Ahora vamos a hacer el total de casos vs el total de muertes por covid alv , por lo que vamos a dividir el total de muertes entre el total de casos vdd
+-- Ahora vamos a hacer el total de casos vs el total de muertes por covid, por lo que vamos a dividir el total de muertes entre el total de casos vdd
 -- Esto nos da el porcentaje de muerte si contraes el covicho en estados unidos 
 Select Location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as PorcentajeMuerte
 From PortfolioProject1..CovidDeaths
@@ -38,7 +38,7 @@ From PortfolioProject1..CovidDeaths
 where location like '%states%'
 order by 1,2
 
--- THIS is because we are ussing an aggregate or groupby ... so...
+-- THIS is because we are ussing an aggregate or group by ... so...
 
 Select Location, population, MAX(total_cases) as HighestInfectionCount,  Max((total_cases/population)*100) as PorcentajeCasos
 From PortfolioProject1..CovidDeaths
@@ -77,7 +77,7 @@ group by continent, location
 order by TotalDeaths desc
 
 
--- okay seguire con el tuto JAJAJ, like okay, puedo hacer una suma de los maximos de cada uno creo, pero no se como si jsjsjs
+-- 
 
  Select location, MAX(cast(total_deaths as int)) as TotalDeaths,  Max((total_deaths/population)*100) as PorcentajeCasos
 From PortfolioProject1..CovidDeaths
@@ -99,7 +99,7 @@ GROUP BY
 ORDER BY 
     TotalDeaths DESC;
 
--- GPT hizo esto
+--  Another way
 
 WITH LatestDeaths AS (
     SELECT 
@@ -127,7 +127,7 @@ GROUP BY
     cd.continent
 ORDER BY 
     TotalDeaths DESC;
--- Pues si , es correcto este pedo jaja
+-- 
 
 /* 
 Explicación:
@@ -154,7 +154,7 @@ where continent is not null
 Group by continent
 order by TOTALMUERTES desc
 
--- Este yo pero yo lo hice mal jaja, deja veo como arreglar esto si.
+-- This one is wrong
 Select continent,MAX(population) as Population, MAX(CAST(total_deaths AS int)) as TOTALMUERTES ,  MAX(CAST(total_deaths AS int))/MAX(population)*100 as DeathPerP
 From PortfolioProject1..CovidDeaths
 where continent is not null
